@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>wonder</groupId>
+    <artifactId>wonder</artifactId>
+    <version>6.1.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Project Wonder</name>
+    <url>http://wiki.objectstyle.org/confluence/display/WONDER/Home</url>
+    <modules>
+        <module>Applications</module>
+        <module>Examples</module>
+        <module>Frameworks</module>
+        <!-- Tests module configuration not finished yet -->
+        <!-- <module>Tests</module> -->
+        <module>Utilities</module>
+    </modules>
+    <properties>
+        <!-- VERY BAD PRACTICE: But there are broken tests -->
+        <maven.test.skip>true</maven.test.skip>
+        <skip.apple.frameworks>true</skip.apple.frameworks>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <webobjects.version>5.4.3</webobjects.version>
+    </properties>
+    <build>
+        <testSourceDirectory>${project.basedir}/Tests</testSourceDirectory>
+    </build>
+    <distributionManagement>
+        <repository>
+            <id>wocommunity.deployment</id>
+            <name>WOCommunity Maven2 Releases Repository</name>
+            <url>http://maven.wocommunity.org/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>wocommunity.deployment</id>
+            <uniqueVersion>false</uniqueVersion>
+            <name>WOCommunity Maven2 Snapshots Repository</name>
+            <url>http://maven.wocommunity.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <scm>
+        <connection>scm:git:git@github.com:wocommunity/wonder.git</connection>
+        <url>scm:git:git@github.com:wocommunity/wonder.git</url>
+        <developerConnection>scm:git:git@github.com:wocommunity/wonder.git</developerConnection>
+    </scm>
+    <parent>
+        <groupId>wonder</groupId>
+        <artifactId>generic-woparent</artifactId>
+        <version>6.1.1-SNAPSHOT</version>
+        <!-- <relativePath>..</relativePath> -->
+    </parent>
+</project>

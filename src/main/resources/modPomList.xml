@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modList xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<wonder.version>6.0.0</wonder.version>
+
+	<parentPom>
+		<!-- List of things to modify in wonder pom to make the generic-woparent 
+			pom. -->
+		<project>
+			<artifactId>generic-woparent</artifactId>
+			<properties>
+				<wonder.version></wonder.version>
+				<maven.test.skip>false</maven.test.skip>
+				<skip.apple.frameworks>false</skip.apple.frameworks>
+				<!-- <wonder.parent.version>${project.version}</wonder.parent.version> -->
+			</properties>
+			<modules>
+				REMOVE
+			</modules>
+
+			<distributionManagement>
+				REMOVE
+			</distributionManagement>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<!-- This would replace the first plugin, child by child
+						  <plugin>
+							<groupId>org.codehaus.mojo</groupId>
+							<artifactId>versions-maven-plugin</artifactId>
+							<version>1.2</version>
+						</plugin>
+						-->
+					</plugins>
+				</pluginManagement>
+				<testSourceDirectory>REMOVE</testSourceDirectory>
+			</build>
+			
+		</project>
+	</parentPom>
+
+	<childPom>
+		<project>
+			<parent>
+				<groupId>wonder</groupId>
+				<artifactId>generic-woparent</artifactId>
+				<version>5.4-SNAPSHOT</version>
+				<relativePath>./generic-woparent</relativePath>
+			</parent>
+			<repositories>
+				REMOVE
+			</repositories>
+			<pluginRepositories>
+				REMOVE
+			</pluginRepositories>
+
+			<build>
+				<pluginManagement>
+					REMOVE
+				</pluginManagement>
+				<plugins>
+					REMOVE
+				</plugins>
+			</build>
+			<dependencyManagement>
+				REMOVE
+			</dependencyManagement>
+
+		</project>
+	</childPom>
+</modList>
+
