@@ -51,8 +51,7 @@
 	</xsl:template>
 		
 	<xsl:template match="/p:project/p:properties"><xsl:message>Matched properties</xsl:message>
-		<xsl:copy>
-		
+		<xsl:copy>		
 			<xsl:element name="wonder.version">
 				<xsl:value-of select="/p:project/p:version" />
 			</xsl:element>
@@ -64,6 +63,7 @@
 		<xsl:message>No p:skip.apple.frameworks</xsl:message>
 		<xsl:copy>
 		 <xsl:element name="skip.apple.frameworks"  >false</xsl:element>
+		 <xsl:comment>make property skip.apple.frameworks false to include apple jars</xsl:comment>
 		 <xsl:element name="wonder.version"><xsl:value-of select="/p:project/p:version" /></xsl:element> 
 		<xsl:apply-templates select="@*|node()" />
 		 </xsl:copy>
@@ -71,6 +71,7 @@
 	
 	<xsl:template match="/p:project/p:properties/p:skip.apple.frameworks">
 		<xsl:copy>false</xsl:copy>
+		 <xsl:comment>make property skip.apple.frameworks false to include apple jars</xsl:comment>
 	</xsl:template>
 	
 	<xsl:template match="/p:project/p:properties/p:maven.test.skip"></xsl:template>
@@ -84,8 +85,7 @@
 	</xsl:template>
 	
 	<!-- to change project.version to wonder.version -->
-	<xsl:template match="p:dependencies/p:dependency/p:version[text()='${project.version}']">
-		 
+	<xsl:template match="p:dependencies/p:dependency/p:version[text()='${project.version}']">		 
 		<xsl:element name="{local-name()}">${wonder.version}</xsl:element>
 	</xsl:template>
 	
