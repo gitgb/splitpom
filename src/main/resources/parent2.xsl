@@ -62,7 +62,7 @@
 	<xsl:template match="/p:project/p:properties[not(p:skip.apple.frameworks)]">
 		<xsl:message>No p:skip.apple.frameworks</xsl:message>
 		<xsl:copy>
-		 <xsl:element name="p:skip.apple.frameworks"  >false</xsl:element>
+		 <xsl:element name="skip.apple.frameworks"  >false</xsl:element>
 		 <xsl:comment>make property skip.apple.frameworks false to include apple jars</xsl:comment>
 		 <xsl:element name="wonder.version"><xsl:value-of select="/p:project/p:version" /></xsl:element> 
 		<xsl:apply-templates select="@*|node()" />
