@@ -146,6 +146,7 @@ public class SplitPom {
 			}
 		}
 		if (filename == null) {
+			filename = "./pom.xml";
 			usage();
 		}
 
