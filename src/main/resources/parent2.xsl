@@ -96,6 +96,7 @@
 		<xsl:message>Adding versions-maven-plugin</xsl:message>
 		<xsl:copy>
 			<xsl:element name="plugin" >
+				<xsl:comment> use at: http://mojo.codehaus.org/versions-maven-plugin/ </xsl:comment>
 				<xsl:element name="groupId" >org.codehaus.mojo</xsl:element>
 				<xsl:element name="artifactId">versions-maven-plugin</xsl:element>
 				<xsl:element name="version">1.3.1</xsl:element>
@@ -103,5 +104,16 @@
 			<xsl:apply-templates select="@*|node()" />
 		</xsl:copy>
 	</xsl:template>
-
+	
+	<xsl:template match="/p:project[not(prerequisites)]">
+		<xsl:message>Adding prerequisites 2.2.1</xsl:message>
+		<xsl:copy>
+			<xsl:element name="prerequisites">
+				<xsl:element name="maven" >2.2.1</xsl:element>
+			</xsl:element>
+			<xsl:apply-templates select="@*|node()" />
+		</xsl:copy>
+		
+	</xsl:template>
+	
 </xsl:stylesheet>
