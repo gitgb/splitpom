@@ -96,9 +96,9 @@
 		<xsl:message>Adding versions-maven-plugin</xsl:message>
 		<xsl:copy>
 			<xsl:element name="plugin" >
-				<xsl:element name="groupId" >org.apache.maven.plugins</xsl:element>
-				<xsl:element name="artifactId">maven-compiler-plugin</xsl:element>
-				<xsl:element name="version">2.3.1</xsl:element>
+				<xsl:element name="groupId" >org.codehaus.mojo</xsl:element>
+				<xsl:element name="artifactId">versions-maven-plugin</xsl:element>
+				<xsl:element name="version">1.3.1</xsl:element>
 			</xsl:element>
 			<xsl:apply-templates select="@*|node()" />
 		</xsl:copy>
