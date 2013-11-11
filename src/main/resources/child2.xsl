@@ -5,7 +5,7 @@
 	xmlns:p="http://maven.apache.org/POM/4.0.0"
 	xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xslt="http://xml.apache.org/xslt" 
-	>
+	exclude-result-prefixes="p xsi xslt ">
 	<xsl:output
 		method="xml"	xslt:indent-amount="4"	
 		indent="yes" />
@@ -41,7 +41,8 @@
 	</xsl:template>
 	<xsl:template match="/p:project/p:dependencyManagement">
 	</xsl:template>
-	<xsl:template match="/p:project/p:build">
+	<xsl:template match="/p:project/p:build" >
+		<xsl:copy> <testSourceDirectory>${project.basedir}/Tests</testSourceDirectory></xsl:copy>
 	</xsl:template>
 	<xsl:template match="/p:project/p:repositories">
 	</xsl:template>
