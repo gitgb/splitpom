@@ -2,12 +2,11 @@
 <xsl:stylesheet
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
 	version="1.0"
-	xmlns:p="http://maven.apache.org/POM/4.0.0"
-	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:p="http://maven.apache.org/POM/4.0.0"	
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:xslt="http://xml.apache.org/xslt"
-	exclude-result-prefixes="p"
-	>
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	exclude-result-prefixes="p">
 	<xsl:output
 		method="xml"	xslt:indent-amount="4"	
 		indent="yes" />
@@ -90,6 +89,19 @@
 	</xsl:template>
 	
 	<xsl:template match="p:modules"> <!-- snip -->
+	</xsl:template>
+	
+	<!-- add a new useful plugin to the parent -->
+	<xsl:template match="p:build/p:plugins[not(artifactId=maven-compiler-plugin)]">
+		<xsl:message>Adding versions-maven-plugin</xsl:message>
+		<xsl:copy>
+			<xsl:element name="plugin" >
+				<xsl:element name="groupId" >org.apache.maven.plugins</xsl:element>
+				<xsl:element name="artifactId">maven-compiler-plugin</xsl:element>
+				<xsl:element name="version">2.3.1</xsl:element>
+			</xsl:element>
+			<xsl:apply-templates select="@*|node()" />
+		</xsl:copy>
 	</xsl:template>
 
 </xsl:stylesheet>
