@@ -5,7 +5,7 @@
 #	create the generic-woparent/pom.xml and  the child.pom.xml.
 #	First, make (mvn clean package) and copy the uber jar to ~/
 #	Example: (after setup) ./pomcurl.sh 5.8.2 
-#	The above will get the wonder version 5.8.2 pom, split and split it.
+#	The above will get the wonder version 5.8.2 pom, and split it.
 # 
 # ENVIRONMENT/PROJECT:
 # 	wonder utilities
