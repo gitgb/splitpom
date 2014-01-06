@@ -47,7 +47,7 @@ Steps to utilize the wonder parent pom:
 *		d) set the property wonder.classifier  to  null, nothing,  or delete that property.
 
 
-This refactoring out the parent pom lets you switch easily to different versions of Wonder, with the correct versions of plugins, jars, etc., as it was the same versions of dependent jars which built that version of Wonder.
+This refactoring out the parent pom lets you switch easily to different versions of Wonder, with the correct versions of plugins, jars, etc., as it was the same versions of dependent jars which built that version of Wonder. This also got me familiar with the DOM and XLS and XSLT.
 
 
 
